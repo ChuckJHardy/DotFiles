@@ -30,9 +30,31 @@ function tmux() {
 	shell.ln("-sf", "~/dotfiles/tmux.conf", ".tmux.conf");
 }
 
+function vscode() {
+	print("VSCode");
+
+	shell.cd("~/");
+
+	let destinationFile = "~/Library/Application\ Support/Code/User/settings.json"
+
+	// Remove Existing Files
+	if (fs.existsSync(destinationFile)) {
+		shell.rm(destinationFile)
+	}
+
+	// Symlink
+	shell.touch(destinationFile);
+	shell.ln("-sf", "~/dotfiles/vscode/settings.json", destinationFile);
+
+	// Extentions
+	shell.exec("code --install-extension PeterJausovec.vscode-docker");
+	shell.exec("code --install-extension vscodevim.vim");
+}
+
 function print(stage) {
 	console.log(chalk.blue(stage));
 }
 
 node();
 tmux();
+vscode();
