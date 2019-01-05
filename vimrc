@@ -22,6 +22,7 @@ Plugin 'elzr/vim-json'
 Plugin 'skalnik/vim-vroom'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'majutsushi/tagbar'
+Plugin 'docker/docker'
 
 call vundle#end()
 filetype plugin indent on
