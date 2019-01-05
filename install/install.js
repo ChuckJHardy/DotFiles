@@ -44,6 +44,26 @@ function node() {
 	printComplete();
 }
 
+function zsh() {
+	printStart("ZSH");
+
+	shell.cd("~/");
+
+	// Remove Existing Files
+	if (fs.existsSync(".zshrc")) {
+		shell.rm(".zshrc")
+	}
+
+	// Symlink
+	shell.touch(".zshrc");
+	shell.ln("-sf", "~/dotfiles/zshrc", ".zshrc");
+
+	// Install .oh-my-zsh
+	shell.exec('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"');
+
+	printComplete();
+}
+
 function tmux() {
 	printStart("Tmux");
 
@@ -81,10 +101,6 @@ function vim() {
 	// Symlink
 	shell.touch(".vimrc");
 	shell.ln("-sf", "~/dotfiles/vimrc", ".vimrc");
-
-	// Vundle
-	shell.exec("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim");
-	shell.exec("vim +PluginInstall +qall");
 
 	printComplete();
 }
@@ -126,6 +142,18 @@ function changeDefaultShellToZSH() {
 	printComplete();
 }
 
+function vimPlugins() {
+	printStart("Vim Plugins");
+
+	shell.cd("~/");
+
+	// Vundle
+	shell.exec("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim");
+	shell.exec("vim +PluginInstall +qall");
+
+	printComplete();
+}
+
 function printStart(stage) {
 	console.log(chalk.green(`\n${stage}`));
 }
@@ -140,8 +168,9 @@ function printStep(step) {
 
 homebrew();
 node();
+zsh();
 tmux();
 vim()
 vscode();
-
 changeDefaultShellToZSH();
+vimPlugins();
