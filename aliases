@@ -1,0 +1,8 @@
+# Unix
+alias e="$EDITOR"
+
+# Bundler
+alias be="bundle exec"
+
+# Unix Replacements
+alias cat="bat"

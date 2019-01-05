@@ -67,6 +67,11 @@ plugins=(
   docker
 )
 
+# Aliases
+if [ -e "$HOME/.aliases" ]; then
+  source "$HOME/.aliases"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
