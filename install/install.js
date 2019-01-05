@@ -23,6 +23,7 @@ function homebrew() {
 	shell.exec("brew install git");
 	shell.exec("brew install zsh");
 	shell.exec("brew install tmux");
+	shell.exec("brew install reattach-to-user-namespace");
 	shell.exec("brew install ctags");
 
 	printComplete();
