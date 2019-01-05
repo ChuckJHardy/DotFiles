@@ -25,6 +25,7 @@ function homebrew() {
 	shell.exec("brew install tmux");
 	shell.exec("brew install reattach-to-user-namespace");
 	shell.exec("brew install ctags");
+	shell.exec("brew install tree");
 
 	printComplete();
 }
