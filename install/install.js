@@ -176,11 +176,11 @@ function printStep(step) {
   console.log(chalk.yellow(`-> ${step}`));
 }
 
-// homebrew();
-// node();
+homebrew();
+node();
 zsh();
-// tmux();
-// vim()
-// vscode();
-// changeDefaultShellToZSH();
-// vimPlugins();
+tmux();
+vim()
+vscode();
+changeDefaultShellToZSH();
+vimPlugins();
